@@ -11,6 +11,8 @@
     <modules>
         <module>springBootMybatis</module>
         <module>springBootMybatisMultiData</module>
+        <module>springBoot01</module>
+        <module>springBootRabbitRabbitMQ</module>
     </modules>
 
 
