@@ -1,26 +1,22 @@
-package com.study.config;
+package com.study.objectMessage;
 
+import com.study.entity.User;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
 /**
  * @author liuxin
- * @Title: Sender
+ * @Title: ObjectSender
  * @ProjectName springBootTest
  * @Description: TODO
- * @date 2018/7/1217:31
+ * @date 2018/7/1314:01
  */
 @Component
-public class Sender {
+public class ObjectSender {
     @Autowired
     private AmqpTemplate rabbitTemplate;
-
-    public void send() {
-        String context = "hello " + new Date();
-        System.out.println("Sender : " + context);
-        this.rabbitTemplate.convertAndSend("hello", context);
+    public void send(){
+        this.rabbitTemplate.convertAndSend("object",new User("123","刘鑫","男","山东"));
     }
 }

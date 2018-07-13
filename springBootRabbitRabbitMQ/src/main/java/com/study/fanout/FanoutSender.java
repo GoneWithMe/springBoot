@@ -1,26 +1,21 @@
-package com.study.config;
+package com.study.fanout;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
 /**
  * @author liuxin
- * @Title: Sender
+ * @Title: FanoutSender
  * @ProjectName springBootTest
  * @Description: TODO
- * @date 2018/7/1217:31
+ * @date 2018/7/1315:08
  */
 @Component
-public class Sender {
+public class FanoutSender {
     @Autowired
     private AmqpTemplate rabbitTemplate;
-
-    public void send() {
-        String context = "hello " + new Date();
-        System.out.println("Sender : " + context);
-        this.rabbitTemplate.convertAndSend("hello", context);
+    public void send(){
+        rabbitTemplate.convertAndSend("fanoutExchange","","this is message");
     }
 }
