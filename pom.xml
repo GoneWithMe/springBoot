@@ -13,6 +13,7 @@
         <module>springBootMybatisMultiData</module>
         <module>springBoot01</module>
         <module>springBootRabbitRabbitMQ</module>
+        <module>springBootEmail</module>
     </modules>
 
 
